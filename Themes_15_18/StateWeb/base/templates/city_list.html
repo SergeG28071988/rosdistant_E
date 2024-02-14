@@ -14,11 +14,11 @@
         </tr>
       </thead>
       <tbody>
-        {% for citie in cities %}
+        {% for city in cities %}
           <tr>           
-            <td>{{ citie.name }}</td>
-            <td>{{ citie.population }}</td>            
-            <td><a href="{% url 'city_detail' citie.pk %}" class="btn btn-warning">Детальнее</a></td>
+            <td>{{ city.name }}</td>
+            <td>{{ city.population }}</td>            
+            <td><a href="{% url 'city_detail' city.pk %}" class="btn btn-warning">Детальнее</a></td>
 
           </tr>
         {% endfor %}

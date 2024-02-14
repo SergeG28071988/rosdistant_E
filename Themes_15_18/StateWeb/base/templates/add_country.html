@@ -1,14 +1,36 @@
 {% extends 'base.html' %}
 
-{% block title %}Добавление страны {% endblock %}
+{% block title %}Добавление страны{% endblock %}
 
 {% block content %}
 <br><br><br>
-  <h1>Добавление страны</h1><br>
-  <form method="post" class="form">
+  <h1 class="text-center">Добавление страны</h1><br>
+  <form method="POST" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
+    
+    <div class="form-group">
+      <label for="{{ form.name.id_for_label }}">Name:</label>
+      {{ form.name }}
+    </div>
+    
+    <div class="form-group">
+      <label for="{{ form.area.id_for_label }}">Area:</label>
+      {{ form.area }}
+    </div>
+    
+    <div class="form-group">
+      <label for="{{ form.population.id_for_label }}">Population:</label>
+      {{ form.population }}
+    </div>
+    
+    <div class="form-group">
+      <label for="{{ form.city.id_for_label }}">City:</label>
+      {{ form.city }}
+    </div>
+    
     <button type="submit">Добавить</button>
     <span>{{ error }}</span> 
   </form>
+  
 {% endblock %}
+

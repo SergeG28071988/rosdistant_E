@@ -17,6 +17,7 @@ def human_list(request):
     return render(request, 'human_list.html', context)
 
 def add_human(request):
+    cities = City.objects.all() 
     if request.method == 'POST':
         form = HumanForm(request.POST)
         if form.is_valid():
@@ -24,7 +25,7 @@ def add_human(request):
             return redirect('human_list')  # перенаправляем на страницу успешного добавления
     else:
         form = HumanForm()
-    return render(request, 'add_human.html', {'form': form})
+    return render(request, 'add_human.html', {'form': form, 'cities': cities})
 
 
 def human_detail(request, pk):
@@ -57,7 +58,7 @@ def city_list(request):
     context = {'title': 'Города', 'cities': cities}
     return render(request, 'city_list.html', context)
 
-def add_city(request):
+def add_city(request):    
     error = ''
     if request.method == 'POST':
         form = CityForm(request.POST)
@@ -74,25 +75,25 @@ def add_city(request):
     return render(request, 'add_city.html', context)
 
 def city_detail(request, pk):
-    citie = get_object_or_404(City, pk=pk)
-    return render(request, 'city_detail.html', {'citie': citie})
+    city = get_object_or_404(City, pk=pk)
+    return render(request, 'city_detail.html', {'city': city})
 
 
 def delete_city(request, pk):
-    citie = get_object_or_404(City, pk=pk)
-    citie.delete()
+    city = get_object_or_404(City, pk=pk)
+    city.delete()
     return redirect('city_list')
 
 
 def edit_city(request, pk):
-    citie = get_object_or_404(City, pk=pk)
+    city = get_object_or_404(City, pk=pk)
     if request.method == 'POST':
-        form = CityForm(request.POST, instance=citie)
+        form = CityForm(request.POST, instance=city)
         if form.is_valid():
             form.save()
             return redirect('city_list')
     else:
-        form = CityForm(instance=citie)
+        form = CityForm(instance=city)
 
     return render(request, 'edit_city.html', {'form': form})
 
@@ -103,7 +104,7 @@ def country_list(request):
     context = {'title': 'Страны', 'countries': countries}
     return render(request, 'country_list.html', context)
 
-def add_country(request):
+def add_country(request):    
     error = ''
     if request.method == 'POST':
         form = CountryForm(request.POST)
@@ -114,7 +115,7 @@ def add_country(request):
             error = "Форма была не верной"
     form = CountryForm()
     context = {        
-        'form': form,
+        'form': form,        
         'error': error
     }
     return render(request, 'add_country.html', context)

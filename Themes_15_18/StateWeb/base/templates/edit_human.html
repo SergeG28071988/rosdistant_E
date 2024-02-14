@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактирование человека{% endblock %}
+
+{% block content %}
+<br><br><br>
+  <h1>Редактирование человека</h1><br>
+  <form method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Изменить</button>
+    <span>{{ error }}</span> 
+  </form>
+{% endblock %}
+

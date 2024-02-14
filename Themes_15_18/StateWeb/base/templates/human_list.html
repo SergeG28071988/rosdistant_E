@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Список людей{% endblock %}
+
+{% block content %}
+<br><br><br>
+  <h1>Список людей</h1>
+  {% if humans  %}
+    <table class="table">
+      <thead>
+        <tr>         
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Дата рождения</th>          
+          <th>Место жительства</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for human in humans %}
+          <tr>           
+            <td>{{ human.name }}</td>
+            <td>{{ human.surname }}</td>            
+            <td>{{ human.date_birth }}</td>            
+            <td>{{ human.place_residence }}</td>
+            <td><a href="{% url 'human_detail' human.pk %}" class="btn btn-warning">Детальнее</a></td>
+
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>У нас нет записей!</p>
+  {% endif %}
+{% endblock %}

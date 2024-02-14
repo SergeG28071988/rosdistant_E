@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Список городов{% endblock %}
+
+{% block content %}
+<br><br><br>
+  <h1>Список городов</h1>
+  {% if cities %}
+    <table class="table">
+      <thead>
+        <tr>         
+          <th>Наименование</th>
+          <th>Численность населения</th>        
+        </tr>
+      </thead>
+      <tbody>
+        {% for citie in cities %}
+          <tr>           
+            <td>{{ citie.name }}</td>
+            <td>{{ citie.population }}</td>            
+            <td><a href="{% url 'city_detail' citie.pk %}" class="btn btn-warning">Детальнее</a></td>
+
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>У нас нет записей!</p>
+  {% endif %}
+{% endblock %}

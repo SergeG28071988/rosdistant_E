@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ human.name }} {{ human.surname }}
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container mt-5">
+  <h1 class="text-center">{{ human.name }} {{ human.surname }}</h1><br>
+  <div class="alert alert-info">
+    <h1> Дата рождения: {{ human.date_birth }}</h1>   
+    <h2>Место проживания: {{ human.place_residence }}</h2>
+    <a href="{% url 'delete_human' human.pk %}" class="btn btn-danger">Удалить</a>  
+    <a href="{% url 'edit_human' human.pk %}" class="btn btn-success">Изменить</a>  
+  </div>     
+</div>
+{% endblock %}

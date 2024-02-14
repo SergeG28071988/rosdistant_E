@@ -56,3 +56,43 @@ buyer = Buyer()
 buyer.buy_car(car1)
 buyer.buy_car(electric_car1)
 buyer.buy_car(sports_car1)
+
+# Создаем еще несколько объектов автомобилей
+car2 = Car("Ford", 2015)
+electric_car2 = ElectricCar("Nissan", 2021, 60)
+sports_car2 = SportsCar("Lamborghini", 2019, 350)
+
+# Демонстрируем покупку разных автомобилей
+buyer.buy_car(car2)
+buyer.buy_car(electric_car2)
+buyer.buy_car(sports_car2)
+
+# Создаем еще несколько объектов автомобилей
+car3 = Car("Toyota", 2018)
+electric_car3 = ElectricCar("Tesla", 2020, 80)
+sports_car3 = SportsCar("Ferrari", 2017, 320)
+
+# Демонстрируем покупку разных автомобилей
+buyer.buy_car(car3)
+buyer.buy_car(electric_car3)
+buyer.buy_car(sports_car3)
+
+# Создаем еще несколько объектов автомобилей
+car4 = Car("Honda", 2016)
+electric_car4 = ElectricCar("Chevrolet", 2019, 70)
+sports_car4 = SportsCar("Porsche", 2022, 360)
+
+# Демонстрируем покупку разных автомобилей
+buyer.buy_car(car4)
+buyer.buy_car(electric_car4)
+buyer.buy_car(sports_car4)
+
+# Создаем еще несколько объектов автомобилей
+car5 = Car("Mazda", 2017)
+electric_car5 = ElectricCar("BMW", 2021, 90)
+sports_car5 = SportsCar("Audi", 2019, 300)
+
+# Демонстрируем покупку разных автомобилей
+buyer.buy_car(car5)
+buyer.buy_car(electric_car5)
+buyer.buy_car(sports_car5)
